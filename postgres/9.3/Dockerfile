@@ -20,6 +20,7 @@ RUN apt-get update
 #  them by prefixing each apt-get statement with DEBIAN_FRONTEND=noninteractive
 RUN apt-get -y -q install python-software-properties software-properties-common
 RUN apt-get -y -q install postgresql-$PG_VERSION postgresql-client-$PG_VERSION postgresql-contrib-$PG_VERSION
+RUN rm -rf /var/lib/apt/lists/*
 
 # Note: The official Debian and Ubuntu images automatically ``apt-get clean``
 # after each ``apt-get``
@@ -31,6 +32,7 @@ USER postgres
 # then create a database `docker` owned by the ``docker`` role.
 # Note: here we use ``&&\`` to run commands one after the other - the ``\``
 #       allows the RUN command to span multiple lines.
+RUN /etc/init.d/postgresql start
 # RUN    /etc/init.d/postgresql start &&\
 #    psql --command "CREATE USER docker WITH SUPERUSER PASSWORD 'docker';" &&\
 #    createdb -O docker docker
@@ -52,8 +54,8 @@ EXPOSE 5432
 # Add VOLUMEs to allow backup of config, logs and databases
 VOLUME  ["/etc/postgresql", "/var/log/postgresql", "/var/lib/postgresql"]
 
-ADD ./docker-entrypoint.sh /
-ENTRYPOINT ["/docker-entrypoint.sh"]
+#ADD ./docker-entrypoint.sh /
+#ENTRYPOINT ["/docker-entrypoint.sh"]
 
 # Set the default command to run when starting the container
-CMD ["postgres"]
+CMD ["/usr/lib/postgresql/9.3/bin/postgres", "-D", "/var/lib/postgresql/9.3/main", "-c", "config_file=/etc/postgresql/9.3/main/postgresql.conf"]
