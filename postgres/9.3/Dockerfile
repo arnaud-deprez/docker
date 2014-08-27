@@ -55,9 +55,11 @@ RUN cp /etc/postgresql/$PG_VERSION/main/pg_hba.conf /etc/postgresql/$PG_VERSION/
 
 # And add ``listen_addresses`` to ``/etc/postgresql/$PG_VERSION/main/postgresql.conf``
 # And add ``max_prepared_transactions`` to ``/etc/postgresql/$PG_VERSION/main/postgresql.conf`` to enable XA transaction
+# And disable ssl configuration
 RUN cp /etc/postgresql/$PG_VERSION/main/postgresql.conf /etc/postgresql/$PG_VERSION/main/postgresql.conf.orig &&\
 	echo "listen_addresses='*'" >> /etc/postgresql/$PG_VERSION/main/postgresql.conf &&\
-	echo "max_prepared_transactions = 20" >> /etc/postgresql/$PG_VERSION/main/postgresql.conf
+	echo "max_prepared_transactions = 20" >> /etc/postgresql/$PG_VERSION/main/postgresql.conf &&\
+	sed -e "s/^ssl\s*=\s*true/ssl = false/" -i /etc/postgresql/$PG_VERSION/main/postgresql.conf
 
 # Expose the PostgreSQL port
 EXPOSE 5432
