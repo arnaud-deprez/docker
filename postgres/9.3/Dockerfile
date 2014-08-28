@@ -44,10 +44,6 @@ RUN apt-get -y -q install postgresql-$PG_VERSION postgresql-client-$PG_VERSION p
 # Note: The official Debian and Ubuntu images automatically ``apt-get clean``
 # after each ``apt-get``
 
-# Alter the PostgreSQL role ``postgres`` with ``postgres`` as the superuser password
-RUN gosu postgres /etc/init.d/postgresql start &&\
-	gosu postgres psql --command "ALTER USER postgres WITH SUPERUSER PASSWORD 'postgres';"
-
 # Adjust PostgreSQL configuration so that remote connections to the
 # database are possible.
 RUN cp /etc/postgresql/$PG_VERSION/main/pg_hba.conf /etc/postgresql/$PG_VERSION/main/pg_hba.conf.orig &&\
@@ -61,14 +57,17 @@ RUN cp /etc/postgresql/$PG_VERSION/main/postgresql.conf /etc/postgresql/$PG_VERS
 	echo "max_prepared_transactions = 20" >> /etc/postgresql/$PG_VERSION/main/postgresql.conf &&\
 	sed -e "s/^ssl\s*=\s*true/ssl = false/" -i /etc/postgresql/$PG_VERSION/main/postgresql.conf
 
+# Alter the PostgreSQL role ``postgres`` with ``postgres`` as the superuser password
+RUN gosu postgres /etc/init.d/postgresql start &&\
+	gosu postgres psql --command "ALTER USER postgres WITH SUPERUSER ENCRYPTED PASSWORD 'postgres';"
+
 # Expose the PostgreSQL port
 EXPOSE 5432
 
-# Add VOLUMEs to allow backup of config, logs and databases
+# Change directory owner to allow backup of config, logs and databases
 RUN chown -R postgres:postgres /etc/postgresql &&\
 	chown -R postgres:postgres /var/log/postgresql &&\
 	chown -R postgres:postgres /var/lib/postgresql
-VOLUME  ["/etc/postgresql", "/var/log/postgresql", "/var/lib/postgresql"]
 
 # Configure entrypoint for docker images and configure PATH
 ENV PATH /usr/lib/postgresql/$PG_VERSION/bin:$PATH
