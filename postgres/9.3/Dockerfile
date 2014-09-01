@@ -1,4 +1,3 @@
-#!/bin/sh
 FROM ubuntu:14.04.1
 MAINTAINER Arnaud Deprez (arnaudeprez@gmail.com)
 
