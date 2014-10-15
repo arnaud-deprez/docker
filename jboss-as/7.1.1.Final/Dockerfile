@@ -3,10 +3,14 @@ MAINTAINER Arnaud Deprez (arnaudeprez@gmail.com)
 
 # export JAVA_HOME environment variable
 ENV JAVA_HOME /usr/lib/jvm/java-7-oracle
-ENV JAVA_OPTS
 
 # Install JBoss-7.1.1.Final
 RUN wget http://download.jboss.org/jbossas/7.1/jboss-as-7.1.1.Final/jboss-as-7.1.1.Final.tar.gz; \
-    tar -xzf apache-servicemix-4.5.3.tar.gz -C /opt; \
+    tar -xzf jboss-as-7.1.1.Final.tar.gz -C /opt; \
     rm jboss-as-7.1.1.Final.tar.gz; \
     ln -s /opt/jboss-as-7.1.1.Final /opt/jboss-as
+
+# Expose port for HornetQ, http, https, management (osgi, http, https)
+EXPOSE 5445 5455 8080 8443 9999 9990 9443
+
+ENTRYPOINT ["/opt/jboss-as/bin/standalone.sh"]
