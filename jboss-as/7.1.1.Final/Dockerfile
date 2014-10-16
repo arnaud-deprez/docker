@@ -13,4 +13,4 @@ RUN wget http://download.jboss.org/jbossas/7.1/jboss-as-7.1.1.Final/jboss-as-7.1
 # Expose port for HornetQ, http, https, management (osgi, http, https)
 EXPOSE 5445 5455 8080 8443 9999 9990 9443
 
-ENTRYPOINT ["/opt/jboss-as/bin/standalone.sh"]
+ENTRYPOINT ["/opt/jboss-as/bin/standalone.sh", "-b", "0.0.0.0"]
