@@ -38,6 +38,7 @@ RUN apt-get -y -q install python-software-properties software-properties-common
 RUN apt-get -y -q install postgresql-$PG_VERSION postgresql-client-$PG_VERSION postgresql-contrib-$PG_VERSION
 
 USER postgres
+WORKDIR /var/lib/postgresql
 
 # Adjust PostgreSQL configuration so that remote connections to the
 # database are possible.
