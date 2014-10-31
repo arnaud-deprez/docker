@@ -2,21 +2,20 @@ FROM ubuntu:14.04.1
 MAINTAINER Arnaud Deprez (arnaudeprez@gmail.com)
 
 # Enable universe
-RUN sed 's/main$/main universe/' -i /etc/apt/sources.list
-RUN apt-get update
-# RUN apt-get upgrade -y
+RUN sed 's/main$/main universe/' -i /etc/apt/sources.list &&\
+    apt-get update
 
 # grab gosu for easy step-down from root
-RUN apt-get update && apt-get install -y curl && rm -rf /var/lib/apt/lists/* \
-	&& curl -o /usr/local/bin/gosu -SL 'https://github.com/tianon/gosu/releases/download/1.1/gosu' \
-	&& chmod +x /usr/local/bin/gosu \
-	&& apt-get purge -y --auto-remove curl
+RUN apt-get install -y curl && rm -rf /var/lib/apt/lists/* &&\
+	curl -o /usr/local/bin/gosu -SL 'https://github.com/tianon/gosu/releases/download/1.1/gosu' &&\
+	chmod +x /usr/local/bin/gosu &&\
+	apt-get purge -y --auto-remove curl
 
 # Configure the postgres version
 ENV PG_VERSION 9.3
 
 # make the "en_US.UTF-8" locale so postgres will be utf-8 enabled by default
-RUN apt-get update && apt-get install -y locales && rm -rf /var/lib/apt/lists/* \
+RUN apt-get install -y locales && rm -rf /var/lib/apt/lists/* \
 	&& localedef -i en_US -c -f UTF-8 -A /usr/share/locale/locale.alias en_US.UTF-8
 ENV LANG en_US.utf8
 
@@ -29,10 +28,8 @@ RUN apt-key adv --keyserver keyserver.ubuntu.com --recv-keys B97B0AFCAA1A47F044F
 
 # Add PostgreSQL's repository. It contains the most recent stable release
 #     of PostgreSQL, ``$PG_VERSION``.
-RUN echo "deb http://apt.postgresql.org/pub/repos/apt/ trusty-pgdg main" > /etc/apt/sources.list.d/pgdg.list
-
-# Update the Ubuntu and PostgreSQL repository indexes
-RUN apt-get update
+RUN echo "deb http://apt.postgresql.org/pub/repos/apt/ trusty-pgdg main" > /etc/apt/sources.list.d/pgdg.list &&\
+    apt-get update
 
 # Install ``python-software-properties``, ``software-properties-common`` and PostgreSQL $PG_VERSION
 #  There are some warnings (in red) that show up during the build. You can hide
@@ -40,8 +37,7 @@ RUN apt-get update
 RUN apt-get -y -q install python-software-properties software-properties-common
 RUN apt-get -y -q install postgresql-$PG_VERSION postgresql-client-$PG_VERSION postgresql-contrib-$PG_VERSION
 
-# Note: The official Debian and Ubuntu images automatically ``apt-get clean``
-# after each ``apt-get``
+USER postgres
 
 # Adjust PostgreSQL configuration so that remote connections to the
 # database are possible.
@@ -57,22 +53,18 @@ RUN cp /etc/postgresql/$PG_VERSION/main/postgresql.conf /etc/postgresql/$PG_VERS
 	sed -e "s/^ssl\s*=\s*true/ssl = false/" -i /etc/postgresql/$PG_VERSION/main/postgresql.conf
 
 # Alter the PostgreSQL role ``postgres`` with ``postgres`` as the superuser password
-RUN gosu postgres /etc/init.d/postgresql start &&\
-	gosu postgres psql --command "ALTER USER postgres WITH SUPERUSER ENCRYPTED PASSWORD 'postgres';"
+RUN /etc/init.d/postgresql start &&\
+	psql --command "ALTER USER postgres WITH SUPERUSER ENCRYPTED PASSWORD 'postgres';"
 
 # Expose the PostgreSQL port
 EXPOSE 5432
 
 # Change directory owner to allow backup of config, logs and databases
-RUN chown -R postgres:postgres /etc/postgresql &&\
-	chown -R postgres:postgres /var/log/postgresql &&\
-	chown -R postgres:postgres /var/lib/postgresql
+VOLUME ["/var/lib/postgresql", "/etc/postgresql", "/var/log/postgresql"]
 
 # Configure entrypoint for docker images and configure PATH
 ENV PATH /usr/lib/postgresql/$PG_VERSION/bin:$PATH
-ADD docker-entrypoint.sh /docker-entrypoint.sh
-RUN chmod 755 /docker-entrypoint.sh
-ENTRYPOINT ["/docker-entrypoint.sh"]
 
 # Set the default command to run when starting the container
-CMD ["postgres", "-D", "/var/lib/postgresql/9.3/main", "-c", "config_file=/etc/postgresql/9.3/main/postgresql.conf"]
+ENTRYPOINT ["postgres"]
+CMD ["-D", "/var/lib/postgresql/9.3/main", "-c", "config_file=/etc/postgresql/9.3/main/postgresql.conf"]
