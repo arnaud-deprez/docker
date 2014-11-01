@@ -1,11 +1,13 @@
 # Postgres
 
-The docker image is available on [DockerHub](https://registry.hub.docker.com/u/arnaudeprez/postgres/).
+This image inherit from the postgres official image.
+It shows an example of how to create another database with another user by using the single mode.
+More information available [here](http://stackoverflow.com/questions/26598738/how-to-create-user-database-in-script-for-docker-postgres)
 
-To run your postgres instance, just use (once you have installed docker <https://docs.docker.com/>) : 
+The official documentation is available [here](https://registry.hub.docker.com/_/postgres/)
 
-    sudo docker run --name <container_name> -p 5432:5432 -d arnaudeprez/postgres:$PG_VERSION
-    
-*where $PG_VERSION is the version of postgres you choose to run.*
-    
-This will run an instance of postgres with a default database **postgres** and the default admin user **postgres** with password **postgres**
+To run an container instance, just use: 
+
+    docker run --name some-postgres -d postgres    
+
+It will expose the default port "5432" and the data volume "/var/lib/postgresql/data"
