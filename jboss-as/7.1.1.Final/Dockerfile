@@ -15,4 +15,5 @@ EXPOSE 4447 5445 5455 8080 8443 9999 9990 9443
 
 VOLUME ["/opt/jboss-as/standalone", "/opt/jboss-as/domain"]
 
-ENTRYPOINT ["/opt/jboss-as/bin/standalone.sh", "-b", "0.0.0.0"]
+ENTRYPOINT ["/opt/jboss-as/bin/standalone.sh"]
+CMD ["-b", "0.0.0.0"]
