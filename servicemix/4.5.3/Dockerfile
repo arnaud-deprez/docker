@@ -16,7 +16,5 @@ EXPOSE 1099 8101 8181 61616 44444
 # export SERVICEMIX_HOME
 ENV SERVICEMIX_HOME /opt/servicemix
 
-VOLUME ["/opt/servicemix/data"]
-
 # Use the servicemix script as entrypoint
 ENTRYPOINT ["/opt/servicemix/bin/servicemix"]
