@@ -16,5 +16,7 @@ EXPOSE 1099 44444 8101 8181
 # export KARAF_HOME
 ENV KARAF_HOME /opt/karaf
 
+VOLUME ["/opt/karaf/deploy"]
+
 # Use the servicemix script as entrypoint
 ENTRYPOINT ["/opt/karaf/bin/karaf"]
