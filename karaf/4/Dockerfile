@@ -21,5 +21,3 @@ VOLUME ["/opt/karaf/deploy"]
 
 # Use the servicemix script as entrypoint
 ENTRYPOINT ["/opt/karaf/bin/karaf"]
-
-http://www.apache.org/dyn/closer.cgi/karaf/4.0.0.M1/apache-karaf-4.0.0.M1.tar.gz
