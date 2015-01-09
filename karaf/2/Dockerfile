@@ -3,7 +3,7 @@ MAINTAINER Arnaud Deprez (arnaudeprez@gmail.com)
 
 # export JAVA_HOME environment variable
 ENV JAVA_HOME /usr/lib/jvm/java-7-oracle
-ENV KARAF_VERSION 2.4.0
+ENV KARAF_VERSION 2.4.1
 
 # Install Servicemix
 RUN wget http://archive.apache.org/dist/karaf/$KARAF_VERSION/apache-karaf-$KARAF_VERSION.tar.gz; \
