@@ -11,12 +11,12 @@ sed -e "s/^ssl\s*=\s*true/ssl = false/" -i "$PGDATA"/postgresql.conf
 echo ""
 echo "******CONFIGURATION UPDATED******"
 
-echo "******CREATING DOCKER DATABASE******"
-gosu postgres postgres --single <<- EOSQL
-   CREATE DATABASE "docker";
-   CREATE USER "docker";
-   ALTER USER "docker" WITH ENCRYPTED PASSWORD 'docker';
-   GRANT ALL PRIVILEGES ON DATABASE "docker" TO "docker";
-EOSQL
-echo ""
-echo "******DOCKER DATABASE CREATED******"
+#echo "******CREATING DOCKER DATABASE******"
+#gosu postgres postgres --single <<- EOSQL
+#   CREATE DATABASE "docker";
+#   CREATE USER "docker";
+#   ALTER USER "docker" WITH ENCRYPTED PASSWORD 'docker';
+#   GRANT ALL PRIVILEGES ON DATABASE "docker" TO "docker";
+#EOSQL
+#echo ""
+#echo "******DOCKER DATABASE CREATED******"
