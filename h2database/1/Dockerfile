@@ -1,4 +1,4 @@
-FROM dockerfile/java:oracle-java8
+FROM java:8
 MAINTAINER Arnaud Deprez (arnaudeprez@gmail.com)
 
 ENV H2_RELEASE_DATE=2015-03-02
