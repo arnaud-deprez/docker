@@ -3,12 +3,13 @@ MAINTAINER Arnaud Deprez (arnaudeprez@gmail.com)
 
 ENV H2_RELEASE_DATE=2015-03-02
 
+WORKDIR /tmp
+
 # Install H2
-RUN cd /tmp &&\
-  wget http://www.h2database.com/h2-$H2_RELEASE_DATE.zip && \
+RUN wget http://www.h2database.com/h2-$H2_RELEASE_DATE.zip && \
   unzip h2-$H2_RELEASE_DATE.zip && \
   rm -f h2-$H2_RELEASE_DATE.zip && \
-  mv /tmp/h2 /opt && \
+  mv h2 /opt && \
   mkdir -p /opt/h2-data
 
 # Expose ports.
