@@ -1,8 +1,6 @@
-FROM java:8
+FROM dockerfile/java:oracle-java8
 MAINTAINER Arnaud Deprez (arnaudeprez@gmail.com)
 
-# export JAVA_HOME environment variable
-ENV JAVA_HOME /usr/lib/jvm/java-8-openjdk-amd64
 ENV KARAF_VERSION 3.0.3
 
 # Install Servicemix
