@@ -1,4 +1,4 @@
-FROM dockerfile/java:oracle-java8
+FROM java:8
 MAINTAINER Arnaud Deprez (arnaudeprez@gmail.com)
 
 ENV KARAF_VERSION 4.0.0.M2
