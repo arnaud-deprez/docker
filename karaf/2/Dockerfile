@@ -1,7 +1,7 @@
 FROM java:8
 MAINTAINER Arnaud Deprez (arnaudeprez@gmail.com)
 
-ENV KARAF_VERSION 2.4.1
+ENV KARAF_VERSION 2.4.2
 
 # Install Servicemix
 RUN wget http://archive.apache.org/dist/karaf/$KARAF_VERSION/apache-karaf-$KARAF_VERSION.tar.gz; \
