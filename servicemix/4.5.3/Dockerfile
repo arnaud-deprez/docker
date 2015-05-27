@@ -1,9 +1,6 @@
 FROM dockerfile/java:oracle-java7
 MAINTAINER Arnaud Deprez (arnaudeprez@gmail.com)
 
-# export JAVA_HOME environment variable
-ENV JAVA_HOME /usr/lib/jvm/java-7-oracle
-
 # Install Servicemix
 RUN wget http://archive.apache.org/dist/servicemix/servicemix-4/4.5.3/apache-servicemix-4.5.3.tar.gz; \
     tar -xzf apache-servicemix-4.5.3.tar.gz -C /opt; \
