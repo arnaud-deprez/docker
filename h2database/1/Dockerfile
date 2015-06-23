@@ -1,7 +1,7 @@
 FROM java:8
 MAINTAINER Arnaud Deprez (arnaudeprez@gmail.com)
 
-ENV H2_RELEASE_DATE=2015-03-02
+ENV H2_RELEASE_DATE=2015-04-10
 
 WORKDIR /tmp
 
