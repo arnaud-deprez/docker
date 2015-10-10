@@ -17,4 +17,5 @@ ENV KARAF_HOME /opt/karaf
 
 VOLUME ["/opt/karaf/deploy"]
 
+
 ENTRYPOINT ["/opt/karaf/bin/karaf"]
