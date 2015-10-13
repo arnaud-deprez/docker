@@ -4,7 +4,7 @@ MAINTAINER Arnaud Deprez (arnaudeprez@gmail.com)
 ENV KARAF_VERSION 2.4.3
 
 # Install Servicemix
-RUN wget http://archive.apache.org/dist/karaf/$KARAF_VERSION/apache-karaf-$KARAF_VERSION.tar.gz; \
+RUN wget http://www.eu.apache.org/dist/karaf/$KARAF_VERSION/apache-karaf-$KARAF_VERSION.tar.gz; \
     tar -xzf apache-karaf-$KARAF_VERSION.tar.gz -C /opt; \
     rm apache-karaf-$KARAF_VERSION.tar.gz; \
     ln -s /opt/apache-karaf-$KARAF_VERSION /opt/karaf

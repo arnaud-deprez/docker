@@ -2,7 +2,7 @@ FROM dockerfile/java:oracle-java7
 MAINTAINER Arnaud Deprez (arnaudeprez@gmail.com)
 
 # Install Servicemix
-RUN wget http://archive.apache.org/dist/servicemix/servicemix-4/4.5.3/apache-servicemix-4.5.3.tar.gz; \
+RUN wget http://www.eu.apache.org/dist/servicemix/servicemix-4/4.5.3/apache-servicemix-4.5.3.tar.gz; \
     tar -xzf apache-servicemix-4.5.3.tar.gz -C /opt; \
     rm apache-servicemix-4.5.3.tar.gz; \
     ln -s /opt/apache-servicemix-4.5.3 /opt/servicemix
