@@ -26,3 +26,4 @@ RUN chmod a+x /opt/karaf/bin/karaf-run.sh && \
 VOLUME ["/opt/karaf/deploy"]
 
 ENTRYPOINT ["/opt/karaf/bin/karaf-run.sh"]
+CMD ["server"]
