@@ -18,8 +18,8 @@ RUN rm -rf /opt/apache-activemq/examples && \
 
 ADD ./activemq.xml $ACTIVEMQ_HOME/conf/activemq.xml
 
-# stomp, ws, tcp, nio, amqp, mqtt, http
-EXPOSE 61613 61614 61615 61616 5672 1883 8161
+# stomp, ws, nio, amqp, mqtt, http
+EXPOSE 61613 61614 61616 5672 1883 8161
 
 ENTRYPOINT ["/opt/activemq/bin/activemq"]
 CMD ["console"]
