@@ -2,6 +2,7 @@ FROM java:8-jre
 MAINTAINER Arnaud Deprez <arnaudeprez@gmail.com>
 
 ENV DOCKERIZE_VERSION v0.2.0
+#This works with elasticsearch 2.1.1
 ENV ELASTICSEARCH_JDBC_VERSION 2.1.1.2
 
 # Install base packages
