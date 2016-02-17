@@ -1,5 +1,5 @@
 FROM jolokia/java-jolokia:8
-MAINTAINER Arnaud Deprez (arnaudeprez@gmail.com)
+MAINTAINER Arnaud Deprez <arnaudeprez@gmail.com>
 
 ENV H2_RELEASE_DATE=2016-01-21
 

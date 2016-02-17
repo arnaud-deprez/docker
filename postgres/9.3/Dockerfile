@@ -1,5 +1,5 @@
 FROM postgres:9.3
-MAINTAINER Arnaud Deprez
+MAINTAINER Arnaud Deprez <arnaudeprez@gmail.com>
 
 ENV POSTGRES_USER postgres
 ENV POSTGRES_PASSWORD postgres

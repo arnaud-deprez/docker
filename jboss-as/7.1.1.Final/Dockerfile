@@ -1,5 +1,5 @@
 FROM dockerfile/java:oracle-java7
-MAINTAINER Arnaud Deprez (arnaudeprez@gmail.com)
+MAINTAINER Arnaud Deprez <arnaudeprez@gmail.com>
 
 # export JAVA_HOME environment variable
 ENV JAVA_DEBUG_PORT 5005

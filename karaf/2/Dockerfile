@@ -1,5 +1,5 @@
 FROM jolokia/java-jolokia:8
-MAINTAINER Arnaud Deprez (arnaudeprez@gmail.com)
+MAINTAINER Arnaud Deprez <arnaudeprez@gmail.com>
 
 ENV KARAF_VERSION 2.4.4
 
