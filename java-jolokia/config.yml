@@ -1,0 +1,11 @@
+tags:
+  - "oracle-7"
+  - "oracle-8"
+config:
+  default:
+    jolokia:
+      version: "1.3.3"
+  oracle-7:
+    from: "java:oracle-7"
+  oracle-8:
+    from: "java:oracle-8"

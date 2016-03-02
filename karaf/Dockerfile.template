@@ -1,7 +1,7 @@
-FROM jolokia/java-jolokia:8
+FROM {{= it.config.from}}
 MAINTAINER Arnaud Deprez <arnaudeprez@gmail.com>
 
-ENV KARAF_VERSION 2.4.4
+ENV KARAF_VERSION {{= it.config.version}}
 
 WORKDIR /opt
 

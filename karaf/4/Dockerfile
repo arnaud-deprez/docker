@@ -17,13 +17,13 @@ EXPOSE 1099 44444 8101 8181 8778
 
 # export KARAF_HOME
 ENV KARAF_HOME /opt/karaf
-ADD karaf-run.sh /opt/karaf/bin/karaf-run.sh
+ADD docker-entrypoint.sh /opt/karaf/bin/docker-entrypoint.sh
 
 # Ensure the script is executable and configure log to the standard output
-RUN chmod a+x /opt/karaf/bin/karaf-run.sh && \
+RUN chmod a+x /opt/karaf/bin/docker-entrypoint.sh && \
 	sed -i 's/^\(.*rootLogger.*\)out/\1stdout/' /opt/karaf/etc/org.ops4j.pax.logging.cfg
 
 VOLUME ["/opt/karaf/deploy"]
 
-ENTRYPOINT ["/opt/karaf/bin/karaf-run.sh"]
+ENTRYPOINT ["/opt/karaf/bin/docker-entrypoint.sh"]
 CMD ["server"]

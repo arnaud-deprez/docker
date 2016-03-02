@@ -1,0 +1,6 @@
+tags:
+  - "oracle-7"
+  - "oracle-8"
+config:
+  default:
+    from: "buildpack-deps:jessie-scm"
