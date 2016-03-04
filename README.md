@@ -6,7 +6,7 @@ This repository contains my custom docker images.
 
 Some are publics and available as automated build in [dockerhub](https://hub.docker.com/u/arnaudeprez):
 
-* [Spicy Java image with Agent Bond](java-agent-bond/README.md)
+* [Java base image with Agent Bond](java-agent-bond/README.md)
 * [Apache ActiveMQ](activemq/README.md)
 * [Apache Karaf](karaf/README.md)
 * [Elasticsearch JDBC importer](elasticsearch-jdbc-base/README.md)
@@ -14,8 +14,9 @@ Some are publics and available as automated build in [dockerhub](https://hub.doc
 
 Some other aren't public due to legal restrictions:
 
-* [Java Oracle](java/README.md)
-* [Java Oracle with Jolokia agent](java-jolokia/README.md)
+* [Java Oracle base image](java/README.md)
+* [Java Oracle base image with Jolokia agent](java-jolokia/README.md)
+* [Java Oracle base image with Agent Bond](java-jolokia/README.md)
 
 ## Template engine
 
