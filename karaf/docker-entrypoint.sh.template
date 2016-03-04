@@ -1,4 +1,4 @@
 #!/bin/sh
-export KARAF_OPTS="$KARAF_OPTS $(jolokia_opts)"
+export KARAF_OPTS="$KARAF_OPTS $(agent-bond-opts)"
 
 exec /opt/apache-karaf-$KARAF_VERSION/bin/karaf "$@"

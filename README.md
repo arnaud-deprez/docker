@@ -6,6 +6,7 @@ This repository contains my custom docker images.
 
 Some are publics and available as automated build in [dockerhub](https://hub.docker.com/u/arnaudeprez):
 
+* [Spicy Java image with Agent Bond](java-agent-bond/README.md)
 * [Apache ActiveMQ](activemq/README.md)
 * [Apache Karaf](karaf/README.md)
 * [Elasticsearch JDBC importer](elasticsearch-jdbc-base/README.md)
@@ -18,8 +19,8 @@ Some other aren't public due to legal restrictions:
 
 ## Template engine
 
-This template engine is based on what Roland Huß have done for [jolokia](https://github.com/rhuss/docker-java-jolokia)
-For generating the images a simple node.js based templating script is used. 
+This template engine is based on what (Roland Huß)[https://github.com/rhuss] have done for [jolokia](https://github.com/rhuss/docker-java-jolokia)
+For generating the images a simple node.js based templating script is used.
 
 ### Initial setup
 
@@ -35,11 +36,11 @@ Then you'll be able to generate the final automated build Dockerfile from the co
 
 ```sh
 node build.js
-``` 
+```
 
 ### Build system
 
-In the base directory of each image, you'll find: 
+In the base directory of each image, you'll find:
 
 * One or many *.template files
 * One config.yml used to customize the file generation
