@@ -1,0 +1,17 @@
+tags:
+  - "7"
+  - "8"
+  - "oracle-7"
+  - "oracle-8"
+config:
+  default:
+    bond:
+      version: "0.1.2"
+  7:
+    from: "java:7"
+  8:
+    from: "java:8"
+  oracle-7:
+    from: "java:oracle-7"
+  oracle-8:
+    from: "java:oracle-8"
