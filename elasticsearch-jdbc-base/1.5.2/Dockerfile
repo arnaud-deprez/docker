@@ -3,7 +3,7 @@ MAINTAINER Arnaud Deprez <arnaudeprez@gmail.com>
 
 ENV DOCKERIZE_VERSION v0.2.0
 #This works with elasticsearch 1.5.2
-ENV ELASTICSEARCH_JDBC_VERSION 1.5.2
+ENV ELASTICSEARCH_JDBC_VERSION 1.5.2.0
 
 # Install dockerize
 RUN curl -sSL https://github.com/jwilder/dockerize/releases/download/$DOCKERIZE_VERSION/dockerize-linux-amd64-$DOCKERIZE_VERSION.tar.gz -o /tmp/dockerize-linux-amd64-$DOCKERIZE_VERSION.tar.gz &&\
