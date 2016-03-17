@@ -1,9 +1,9 @@
-FROM {{= it.config.from}}
+FROM java:8-jre
 MAINTAINER Arnaud Deprez <arnaudeprez@gmail.com>
 
-ENV DOCKERIZE_VERSION {{= it.config.dockerize.version}}
-#This works with elasticsearch {{= it.version}}
-ENV ELASTICSEARCH_JDBC_VERSION {{= it.config.elasticsearchjdbc.version}}
+ENV DOCKERIZE_VERSION v0.2.0
+#This works with elasticsearch 1.7.0
+ENV ELASTICSEARCH_JDBC_VERSION 1.7.0.1
 
 # Install dockerize
 RUN curl -sSL https://github.com/jwilder/dockerize/releases/download/$DOCKERIZE_VERSION/dockerize-linux-amd64-$DOCKERIZE_VERSION.tar.gz -o /tmp/dockerize-linux-amd64-$DOCKERIZE_VERSION.tar.gz &&\

@@ -6,7 +6,7 @@ ENV H2_RELEASE_DATE=2016-01-21
 WORKDIR /tmp
 
 # Install H2
-RUN wget http://www.h2database.com/h2-$H2_RELEASE_DATE.zip && \
+RUN curl -sSL http://www.h2database.com/h2-$H2_RELEASE_DATE.zip -o h2-$H2_RELEASE_DATE.zip && \
   unzip h2-$H2_RELEASE_DATE.zip && \
   rm -f h2-$H2_RELEASE_DATE.zip && \
   mv h2 /opt && \

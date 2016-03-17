@@ -1,4 +1,4 @@
-FROM jolokia/java-jolokia:8
+FROM arnaudeprez/java-agent-bond:8
 MAINTAINER Arnaud Deprez <arnaudeprez@gmail.com>
 
 ENV KARAF_VERSION 3.0.5
@@ -6,7 +6,7 @@ ENV KARAF_VERSION 3.0.5
 WORKDIR /opt
 
 # Install Karaf
-RUN wget http://www.eu.apache.org/dist/karaf/$KARAF_VERSION/apache-karaf-$KARAF_VERSION.tar.gz; \
+RUN curl -sSL http://www.eu.apache.org/dist/karaf/$KARAF_VERSION/apache-karaf-$KARAF_VERSION.tar.gz -o apache-karaf-$KARAF_VERSION.tar.gz; \
     tar -xzf apache-karaf-$KARAF_VERSION.tar.gz -C /opt; \
     rm apache-karaf-$KARAF_VERSION.tar.gz; \
     ln -s /opt/apache-karaf-$KARAF_VERSION /opt/karaf; \

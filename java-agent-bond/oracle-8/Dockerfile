@@ -2,15 +2,17 @@ FROM java:oracle-8
 MAINTAINER Arnaud Deprez <arnaudeprez@gmail.com>
 
 #Install Agent Bond
-ENV AGENT_BOND_VERSION 0.1.2
+ENV AB_VERSION=0.1.2 \
+	AB_HOME="/opt/agent-bond"
 
-# Add environment setup script
-ADD agent-bond-opts /bin/
-
-RUN chmod 755 /bin/agent-bond-opts &&\
-	mkdir /opt/agent-bond &&\
-	wget http://central.maven.org/maven2/io/fabric8/agent-bond-agent/${AGENT_BOND_VERSION}/agent-bond-agent-${AGENT_BOND_VERSION}.jar \
-	-O /opt/agent-bond/agent-bond.jar
+RUN set -x && \
+  mkdir -p $AB_HOME && \
+  curl -sSL https://raw.githubusercontent.com/fabric8io/agent-bond/master/fish-pepper/agent-bond/fp-files/agent-bond-opts  -o /usr/local/bin/agent-bond-opts && \
+  chmod 755 /usr/local/bin/agent-bond-opts && \
+  curl -sSL http://central.maven.org/maven2/io/fabric8/agent-bond-agent/${AB_VERSION}/agent-bond-agent-${AB_VERSION}.jar -o $AB_HOME/agent-bond.jar && \
+  chmod 444 $AB_HOME/agent-bond.jar && \
+  curl -sSL https://raw.githubusercontent.com/fabric8io/agent-bond/master/fish-pepper/agent-bond/fp-files/jmx_exporter_config.json -o $AB_HOME/jmx_exporter_config.json && \
+  chmod 444 $AB_HOME/jmx_exporter_config.json
 
 # Print out the version
 CMD ["java", "-jar", "/opt/agent-bond/agent-bond.jar", "--version"]
