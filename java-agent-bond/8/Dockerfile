@@ -1,4 +1,4 @@
-FROM java:8
+FROM java:8-alpine
 MAINTAINER Arnaud Deprez <arnaudeprez@gmail.com>
 
 #Install Agent Bond
@@ -6,6 +6,7 @@ ENV AB_VERSION=0.1.2 \
 	AB_HOME="/opt/agent-bond"
 
 RUN set -x && \
+	apk add --no-cache curl && \
   mkdir -p $AB_HOME && \
   curl -sSL https://raw.githubusercontent.com/fabric8io/agent-bond/master/fish-pepper/agent-bond/fp-files/agent-bond-opts  -o /usr/local/bin/agent-bond-opts && \
   chmod 755 /usr/local/bin/agent-bond-opts && \

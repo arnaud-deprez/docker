@@ -1,14 +1,15 @@
-FROM java:8
+FROM java:8-alpine
 MAINTAINER Arnaud Deprez <arnaudeprez@gmail.com>
 
 ENV ACTIVEMQ_VERSION 5.13.2
 ENV ACTIVEMQ apache-activemq-$ACTIVEMQ_VERSION
 ENV ACTIVEMQ_HOME /opt/activemq
 
-RUN curl -O http://www.eu.apache.org/dist/activemq/$ACTIVEMQ_VERSION/$ACTIVEMQ-bin.tar.gz && \
+RUN apk add --no-cache curl && \
+    curl -sSL http://www.eu.apache.org/dist/activemq/$ACTIVEMQ_VERSION/$ACTIVEMQ-bin.tar.gz  -o /tmp/$ACTIVEMQ-bin.tar.gz && \
     mkdir -p /opt && \
-    tar -xf $ACTIVEMQ-bin.tar.gz -C /opt/ && \
-    rm $ACTIVEMQ-bin.tar.gz && \
+    tar -xzf /tmp/$ACTIVEMQ-bin.tar.gz -C /opt/ && \
+    rm /tmp/$ACTIVEMQ-bin.tar.gz && \
     ln -s /opt/$ACTIVEMQ $ACTIVEMQ_HOME &&\
     rm -rf /opt/apache-activemq/examples && \
     rm -rf /opt/apache-activemq/docs && \

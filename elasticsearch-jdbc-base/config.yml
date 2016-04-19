@@ -8,9 +8,11 @@ tags:
   - "2.1.0"
   - "2.1.1"
   - "2.2.0"
+  - "2.2.1"
+  - "2.3.1"
 config:
   default:
-    from: "java:8-jre"
+    from: "java:8-jre-alpine"
     dockerize:
       version: "v0.2.0"
   1.5.2:
@@ -40,3 +42,9 @@ config:
   2.2.0:
     elasticsearchjdbc:
       version: "2.2.0.1"
+  2.2.1:
+    elasticsearchjdbc:
+      version: "2.2.1.0"
+  2.3.1:
+    elasticsearchjdbc:
+      version: "2.3.1.0"
