@@ -6,11 +6,12 @@ ENV KARAF_VERSION 4.0.4
 WORKDIR /opt
 
 # Install Karaf
-RUN curl -sSL http://www.eu.apache.org/dist/karaf/$KARAF_VERSION/apache-karaf-$KARAF_VERSION.tar.gz -o apache-karaf-$KARAF_VERSION.tar.gz; \
+RUN apk --no-cache add openssh-client; \
+    curl -sSL http://www.eu.apache.org/dist/karaf/$KARAF_VERSION/apache-karaf-$KARAF_VERSION.tar.gz -o apache-karaf-$KARAF_VERSION.tar.gz; \
     tar -xzf apache-karaf-$KARAF_VERSION.tar.gz -C /opt; \
     rm apache-karaf-$KARAF_VERSION.tar.gz; \
     ln -s /opt/apache-karaf-$KARAF_VERSION /opt/karaf; \
-	rm -rf /opt/karaf/demos /opt/karaf/deploy/README
+	  rm -rf /opt/karaf/demos /opt/karaf/deploy/README
 
 # Expose JMX (1099 and 44444), ssh (8101), http (8181), jolokia (8778)
 EXPOSE 1099 44444 8101 8181 8778
