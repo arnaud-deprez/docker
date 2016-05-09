@@ -6,7 +6,7 @@ ENV KARAF_VERSION 2.4.4
 WORKDIR /opt
 
 # Install Karaf
-RUN apk --no-cache add openssh-client; \
+RUN apk --no-cache add bash openssh-client; \
     curl -sSL http://www.eu.apache.org/dist/karaf/$KARAF_VERSION/apache-karaf-$KARAF_VERSION.tar.gz -o apache-karaf-$KARAF_VERSION.tar.gz; \
     tar -xzf apache-karaf-$KARAF_VERSION.tar.gz -C /opt; \
     rm apache-karaf-$KARAF_VERSION.tar.gz; \
