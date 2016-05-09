@@ -6,11 +6,11 @@ ENV KARAF_VERSION {{= it.config.version}}
 WORKDIR /opt
 
 # Install Karaf
-RUN apk --no-cache add bash openssh-client; \
-    curl -sSL http://www.eu.apache.org/dist/karaf/$KARAF_VERSION/apache-karaf-$KARAF_VERSION.tar.gz -o apache-karaf-$KARAF_VERSION.tar.gz; \
-    tar -xzf apache-karaf-$KARAF_VERSION.tar.gz -C /opt; \
-    rm apache-karaf-$KARAF_VERSION.tar.gz; \
-    ln -s /opt/apache-karaf-$KARAF_VERSION /opt/karaf; \
+RUN apk --no-cache add bash openssh-client && \
+    curl -sSL https://repo.maven.apache.org/maven2/org/apache/karaf/apache-karaf/$KARAF_VERSION/apache-karaf-$KARAF_VERSION.tar.gz -o apache-karaf-$KARAF_VERSION.tar.gz && \
+    tar -xzf apache-karaf-$KARAF_VERSION.tar.gz -C /opt && \
+    rm apache-karaf-$KARAF_VERSION.tar.gz && \
+    ln -s /opt/apache-karaf-$KARAF_VERSION /opt/karaf && \
 	  rm -rf /opt/karaf/demos /opt/karaf/deploy/README
 
 # Expose JMX (1099 and 44444), ssh (8101), http (8181), jolokia (8778)
