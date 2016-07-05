@@ -48,3 +48,9 @@ config:
   2.3.1:
     elasticsearchjdbc:
       version: "2.3.1.0"
+  2.3.2:
+    elasticsearchjdbc:
+      version: "2.3.2.0"
+  2.3.3:
+    elasticsearchjdbc:
+      version: "2.3.3.0"

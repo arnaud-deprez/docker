@@ -2,7 +2,7 @@ FROM java:oracle-8
 MAINTAINER Arnaud Deprez <arnaudeprez@gmail.com>
 
 #Install Agent Bond
-ENV AB_VERSION=0.1.2 \
+ENV AB_VERSION=0.1.3 \
 	AB_HOME="/opt/agent-bond"
 
 RUN set -x && \

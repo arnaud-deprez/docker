@@ -6,7 +6,7 @@ tags:
 config:
   default:
     bond:
-      version: "0.1.2"
+      version: "0.1.3"
   7:
     from: "java:7-alpine"
   8:
