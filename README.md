@@ -16,7 +16,7 @@ Some other aren't public due to legal restrictions:
 
 * [Java Oracle base image](java/README.md)
 * [Java Oracle base image with Jolokia agent](java-jolokia/README.md)
-* [Java Oracle base image with Agent Bond](java-jolokia/README.md)
+* [Java Oracle base image with Agent Bond](java-agent-bond/README.md)
 
 ## Template engine
 
