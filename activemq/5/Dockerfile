@@ -1,7 +1,7 @@
-FROM java:8-alpine
+FROM openjdk:8-alpine
 MAINTAINER Arnaud Deprez <arnaudeprez@gmail.com>
 
-ENV ACTIVEMQ_VERSION 5.13.3
+ENV ACTIVEMQ_VERSION 5.14.0
 ENV ACTIVEMQ apache-activemq-$ACTIVEMQ_VERSION
 ENV ACTIVEMQ_HOME /opt/activemq
 
@@ -15,7 +15,7 @@ RUN apk add --no-cache curl && \
     rm -rf /opt/apache-activemq/docs && \
     rm -rf /opt/apache-activemq/webapps-demo
 
-ADD ./activemq.xml $ACTIVEMQ_HOME/conf/activemq.xml
+#ADD ./activemq.xml $ACTIVEMQ_HOME/conf/activemq.xml
 
 # stomp, ws, nio, amqp, mqtt, http
 EXPOSE 61613 61614 61616 5672 1883 8161

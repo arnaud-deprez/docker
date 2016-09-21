@@ -1,4 +1,4 @@
-FROM java:8-alpine
+FROM openjdk:8-alpine
 MAINTAINER Arnaud Deprez <arnaudeprez@gmail.com>
 
 #Install Agent Bond

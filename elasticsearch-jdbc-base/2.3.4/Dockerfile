@@ -2,8 +2,8 @@ FROM java:8-jre-alpine
 MAINTAINER Arnaud Deprez <arnaudeprez@gmail.com>
 
 ENV DOCKERIZE_VERSION v0.2.0
-#This works with elasticsearch 2.3.3
-ENV ELASTICSEARCH_JDBC_VERSION 2.3.3.1
+#This works with elasticsearch 2.3.4
+ENV ELASTICSEARCH_JDBC_VERSION 2.3.4.1
 
 # Install dockerize
 RUN apk add --no-cache curl &&\

@@ -8,9 +8,9 @@ config:
     bond:
       version: "0.1.3"
   7:
-    from: "java:7-alpine"
+    from: "openjdk:7-alpine"
   8:
-    from: "java:8-alpine"
+    from: "openjdk:8-alpine"
   oracle-7:
     from: "java:oracle-7"
   oracle-8:
