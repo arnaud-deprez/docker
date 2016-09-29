@@ -1,4 +1,4 @@
-FROM java:8-jre-alpine
+FROM openjdk:8-jre
 MAINTAINER Arnaud Deprez <arnaudeprez@gmail.com>
 
 ENV DOCKERIZE_VERSION v0.2.0

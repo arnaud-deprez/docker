@@ -12,12 +12,6 @@ Some are publics and available as automated build in [dockerhub](https://hub.doc
 * [Elasticsearch JDBC importer](elasticsearch-jdbc-base/README.md)
 * [H2 database](h2database/README.md)
 
-Some other aren't public due to legal restrictions:
-
-* [Java Oracle base image](java/README.md)
-* [Java Oracle base image with Jolokia agent](java-jolokia/README.md)
-* [Java Oracle base image with Agent Bond](java-agent-bond/README.md)
-
 ## Template engine
 
 This template engine is based on what (Roland Huß)[https://github.com/rhuss] have done for [jolokia](https://github.com/rhuss/docker-java-jolokia)
