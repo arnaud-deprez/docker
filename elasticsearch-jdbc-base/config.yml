@@ -15,7 +15,7 @@ tags:
   - "2.3.4"
 config:
   default:
-    from: "openjdk:8-jre"
+    from: "openjdk:8-jre-alpine"
     dockerize:
       version: "v0.2.0"
   1.5.2:
