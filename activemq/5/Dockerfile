@@ -1,7 +1,7 @@
 FROM openjdk:8-alpine
 MAINTAINER Arnaud Deprez <arnaudeprez@gmail.com>
 
-ENV ACTIVEMQ_VERSION 5.14.0
+ENV ACTIVEMQ_VERSION 5.14.4
 ENV ACTIVEMQ apache-activemq-$ACTIVEMQ_VERSION
 ENV ACTIVEMQ_HOME /opt/activemq
 

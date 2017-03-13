@@ -2,7 +2,7 @@ FROM openjdk:7-alpine
 MAINTAINER Arnaud Deprez <arnaudeprez@gmail.com>
 
 #Install Agent Bond
-ENV AB_VERSION=0.1.4 \
+ENV AB_VERSION=1.0.0 \
 	AB_HOME="/opt/agent-bond"
 
 RUN set -x && \

@@ -4,7 +4,7 @@ tags:
 config:
   default:
     bond:
-      version: "0.1.4"
+      version: "1.0.0"
   7:
     from: "openjdk:7-alpine"
   8:
