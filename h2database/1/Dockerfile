@@ -1,7 +1,7 @@
 FROM arnaudeprez/java-agent-bond:8
 MAINTAINER Arnaud Deprez <arnaudeprez@gmail.com>
 
-ENV H2_RELEASE_DATE=2017-03-10
+ENV H2_RELEASE_DATE=2017-06-10
 
 WORKDIR /tmp
 

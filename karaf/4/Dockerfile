@@ -1,7 +1,7 @@
 FROM arnaudeprez/java-agent-bond:8
 MAINTAINER Arnaud Deprez <arnaudeprez@gmail.com>
 
-ENV KARAF_VERSION 4.1.0
+ENV KARAF_VERSION 4.1.2
 
 WORKDIR /opt
 
