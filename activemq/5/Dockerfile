@@ -1,12 +1,13 @@
 FROM openjdk:8-alpine
-MAINTAINER Arnaud Deprez <arnaudeprez@gmail.com>
 
-ENV ACTIVEMQ_VERSION 5.15.0
-ENV ACTIVEMQ apache-activemq-$ACTIVEMQ_VERSION
-ENV ACTIVEMQ_HOME /opt/activemq
+LABEL maintainer="Arnaud Deprez <arnaudeprez@gmail.com>"
+
+ENV ACTIVEMQ_VERSION=5.15.0
+ENV ACTIVEMQ=apache-activemq-$ACTIVEMQ_VERSION
+ENV ACTIVEMQ_HOME=/opt/activemq
 
 RUN apk add --no-cache curl && \
-    curl -sSL http://www.eu.apache.org/dist/activemq/$ACTIVEMQ_VERSION/$ACTIVEMQ-bin.tar.gz  -o /tmp/$ACTIVEMQ-bin.tar.gz && \
+    curl -sSL https://archive.apache.org/dist/activemq/$ACTIVEMQ_VERSION/$ACTIVEMQ-bin.tar.gz  -o /tmp/$ACTIVEMQ-bin.tar.gz && \
     mkdir -p /opt && \
     tar -xzf /tmp/$ACTIVEMQ-bin.tar.gz -C /opt/ && \
     rm /tmp/$ACTIVEMQ-bin.tar.gz && \

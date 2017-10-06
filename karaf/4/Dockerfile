@@ -1,5 +1,6 @@
 FROM arnaudeprez/java-agent-bond:8
-MAINTAINER Arnaud Deprez <arnaudeprez@gmail.com>
+
+LABEL maintainer="Arnaud Deprez <arnaudeprez@gmail.com>"
 
 ENV KARAF_VERSION 4.1.2
 

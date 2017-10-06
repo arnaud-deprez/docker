@@ -1,5 +1,6 @@
 FROM {{= it.config.from}}
-MAINTAINER Arnaud Deprez <arnaudeprez@gmail.com>
+
+LABEL maintainer="Arnaud Deprez <arnaudeprez@gmail.com>"
 
 ENV KARAF_VERSION {{= it.config.version}}
 

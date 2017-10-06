@@ -1,5 +1,6 @@
 FROM openjdk:8-jre-alpine
-MAINTAINER Arnaud Deprez <arnaudeprez@gmail.com>
+
+LABEL maintainer="Arnaud Deprez <arnaudeprez@gmail.com>"
 
 ENV DOCKERIZE_VERSION v0.2.0
 #This works with elasticsearch 1.6.0
